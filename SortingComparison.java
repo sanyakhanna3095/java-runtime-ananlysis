@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class SortingComparison {
 
-    // Bubble Sort (O(N^2)): Inefficient for large datasets
+    // Bubble Sort: Inefficient for large datasets
     public static void bubbleSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -19,7 +19,7 @@ public class SortingComparison {
         }
     }
 
-    // Merge Sort (O(N log N)): Efficient and stable sorting algorithm
+    // Merge Sort: Efficient and stable sorting algorithm
     public static void mergeSort(int[] arr, int left, int right) {
         if (left < right) {
             int mid = left + (right - left) / 2;
@@ -29,7 +29,6 @@ public class SortingComparison {
         }
     }
 
-    // Merge function to combine two sorted halves
     private static void merge(int[] arr, int left, int mid, int right) {
         int n1 = mid - left + 1;
         int n2 = right - mid;
@@ -50,7 +49,7 @@ public class SortingComparison {
         while (j < n2) arr[k++] = R[j++];
     }
 
-    // Quick Sort (O(N log N)): Fast but not always stable
+    // Quick Sort: Fast but not always stable
     public static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
@@ -59,7 +58,6 @@ public class SortingComparison {
         }
     }
 
-    // Partition function for Quick Sort
     private static int partition(int[] arr, int low, int high) {
         // Choose last element as pivot
         int pivot = arr[high];
@@ -99,25 +97,25 @@ public class SortingComparison {
         int[] dataset2 = Arrays.copyOf(dataset1, dataset1.length);
         int[] dataset3 = Arrays.copyOf(dataset1, dataset1.length);
 
-        // Measure Bubble Sort Time
+        // calculate Bubble Sort Time
         long startTime = System.nanoTime();
         bubbleSort(dataset1);
         long endTime = System.nanoTime();
         long bubbleTime = endTime - startTime;
 
-        // Measure Merge Sort Time
+        // calculate Merge Sort Time
         startTime = System.nanoTime();
         mergeSort(dataset2, 0, dataset2.length - 1);
         endTime = System.nanoTime();
         long mergeTime = endTime - startTime;
 
-        // Measure Quick Sort Time
+        // calculate Quick Sort Time
         startTime = System.nanoTime();
         quickSort(dataset3, 0, dataset3.length - 1);
         endTime = System.nanoTime();
         long quickTime = endTime - startTime;
 
-        // Print sorting times
+
         System.out.println("Dataset Size: " + n);
         System.out.println("Bubble Sort Time: " + bubbleTime / 1_000_000.0 + " ms");
         System.out.println("Merge Sort Time: " + mergeTime / 1_000_000.0 + " ms");
