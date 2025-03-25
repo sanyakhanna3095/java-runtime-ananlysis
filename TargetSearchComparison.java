@@ -17,14 +17,14 @@ public class TargetSearchComparison {
     }
 
     // Binary Search Implementation (Array must be sorted first)
-    public static int binarySearch(int[] arr, int target) {
+    public static int binarySearch(int[] arr, int trgt) {
         int left = 0, right = arr.length - 1;
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (arr[mid] == target) {
+            if (arr[mid] == trgt) {
                 return mid;
             }
-            else if (arr[mid] < target) {
+            else if (arr[mid] < trgt) {
                 left = mid + 1;
             }
             else {
